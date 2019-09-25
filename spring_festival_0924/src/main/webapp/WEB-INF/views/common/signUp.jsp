@@ -72,7 +72,7 @@
           <label class="col-sm-2 control-label">생년월일</label>
           <div class="col-sm-8">
             
-            <select class="form-control" id="birthY" name="birthY" size="3">
+            <select class="form-control" id="birthY" name="birthY">
             	<c:forEach begin="0" end="${2019-1900 }" var="i">
             	<c:set var="year" value="${2019-i} "/>
             		<option value="${year}">${year}</option>
