@@ -20,15 +20,15 @@
 	</bean>
 	
 	<!-- dao -->
-	<bean id="memberDAO" 
-		  class="com.spring.dao.MemberDAOImpl"
-		  p:session-ref="sqlSession" 
-		  />
+	<bean id="memberDAO" class="com.spring.dao.MemberDAOImpl"
+		p:session-ref="sqlSession"/>
 	<bean id="reviewDAO" class="com.spring.dao.ReviewDAOImpl"
-		p:session-ref="sqlSession" />
+		p:session-ref="sqlSession"/>
 	<bean id="attachDAO" class="com.spring.dao.AttachDAOImpl"
 		p:session-ref="sqlSession"/>	
 	<bean id="commentsDAO" class="com.spring.dao.CommentsDAOImpl"
+		p:session-ref="sqlSession"/>	
+	<bean id="messageDAO" class="com.spring.dao.MessageDAOImpl"
 		p:session-ref="sqlSession"/>	
 		  
 		  
@@ -43,5 +43,7 @@
 		p:commentsDAO-ref="commentsDAO"/>
 	<bean id="commentsService" class="com.spring.service.CommentsServiceImpl"
 		p:commentsDAO-ref="commentsDAO"/>
+	<bean id="messageService" class="com.spring.service.MessageServiceImpl"
+		p:messageDAO-ref="messageDAO"/>
 	
 </beans>

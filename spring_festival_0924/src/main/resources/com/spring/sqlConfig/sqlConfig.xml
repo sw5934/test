@@ -15,6 +15,7 @@
   		<typeAlias type="com.spring.dto.CommentsVO" alias="comments"/>
   		<typeAlias type="com.spring.dto.TogetherVO" alias="together"/>
   		<typeAlias type="com.spring.dto.LikeVO" alias="like"/>
+  		<typeAlias type="com.spring.dto.MessageVO" alias="message"/>
   	</typeAliases>
   	
   </configuration>
