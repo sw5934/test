@@ -22,17 +22,38 @@ public class ReviewDAOImpl implements ReviewDAO {
 		int offset=cri.getPageStartRowNum();
 		int limit=cri.getPerPageNum();
 		RowBounds rowBounds=new RowBounds(offset,limit);
+		List<ReviewVO> reviewList;
 		
-		List<ReviewVO> reviewList=
-		   session.selectList("Review-Mapper.selectSearchReviewList",cri,rowBounds);	
-			
+		if(!(cri.getListSort().equals("r_like")||cri.getListSort().equals("r_viewcnt"))) {
+			cri.setListSort("rno");
+		}
+		
+		if(cri.getListSort().equals("r_like")) {
+			reviewList=
+					session.selectList("Review-Mapper.selectSearchReviewListByLike",cri,rowBounds);
+		}else {
+			reviewList=
+					session.selectList("Review-Mapper.selectSearchReviewList",cri,rowBounds);
+		}	
 		return reviewList;
 	}
 
 	@Override
 	public int selectReviewCriteriaTotalCount(SearchCriteria cri) throws SQLException {
-		List<ReviewVO> reviewList= 
-				session.selectList("Review-Mapper.selectSearchReviewList",cri);
+		
+	List<ReviewVO> reviewList;
+			
+			if(!(cri.getListSort().equals("r_like")||cri.getListSort().equals("r_viewcnt"))) {
+				cri.setListSort("rno");
+			}
+			
+			if(cri.getListSort().equals("r_like")) {
+				reviewList=
+						session.selectList("Review-Mapper.selectSearchReviewListByLike",cri);
+			}else {
+				reviewList=
+						session.selectList("Review-Mapper.selectSearchReviewList",cri);
+			}	
 		int count=reviewList.size();
 		
 		return count;

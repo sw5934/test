@@ -64,12 +64,11 @@
     </div>
     <div class="col-10 mt-3 reviewHeader" style="overflow: hidden; margin: 0 auto;">
         <!-- 정렬 이벤트, 글 작성 이벤트 넣기 -->
-        <div class="float-sm-left col-4 mt-1 p-0">
+        <div class="float-sm-left col-6 mt-1 p-0">
             <button id="newBtn" class="reviewRegist ml-2" onclick="location.href='reviewRegist'">글 작성</button></div>
-        <div class="float-sm-left col-2 reviewHeaderSort"><a href="#">최신 일자</a></div>
-        <div class="float-sm-left col-2 reviewHeaderSort"><a href="#">오래된 순</a></div>
-        <div class="float-sm-left col-2 reviewHeaderSort"><a href="#">조회 수</a></div>
-        <div class="float-sm-left col-2 reviewHeaderSort" style="border: 0"><a href="#">좋아요</a></div>
+        <div class="float-sm-left col-2 reviewHeaderSort"><a href="?listSort=rno">최신 일자</a></div>
+        <div class="float-sm-left col-2 reviewHeaderSort"><a href="?listSort=r_viewcnt">조회 수</a></div>
+        <div class="float-sm-left col-2 reviewHeaderSort" style="border: 0"><a href="?listSort=r_like">좋아요</a></div>
     </div>
     <table class="mt-5 col-10" style=" margin: 0 auto;">
         <c:if test="${empty reviewList }">
@@ -106,19 +105,19 @@
             
                 <c:if test="${pageMaker.prev }">
                 	<li class="page-item">
-                    	<a class="page-link" href="list${pageMaker.makeQuery(1)}">&lt;&lt;</a>
+                    	<a class="page-link" href="${pageMaker.makeQuery(1)}">&lt;&lt;</a>
                     </li>
                 </c:if>
                     
                 <c:if test="${pageMaker.prev }"> 
                 	<li class="page-item">
-                		<a class="page-link" href="list${pageMaker.makeQuery(pageMaker.startPage-1) }">&lt;</a>
+                		<a class="page-link" href="${pageMaker.makeQuery(pageMaker.startPage-1) }">&lt;</a>
                 	</li>
                 </c:if>
                 
                 <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="pageNum">
                     <li class="page-item <c:out value=" ${pageMaker.cri.page==pageNum ?'active':''}" />">
-                    <a class="page-link" href="list${pageMaker.makeQuery(pageNum) }">
+                    <a class="page-link" href="${pageMaker.makeQuery(pageNum) }">
                         ${pageNum }
                     </a>
                     </li>
@@ -126,14 +125,14 @@
                 
                 <c:if test="${pageMaker.next }">
 	                <li class="page-item">
-	                    <a class="page-link" href="list${pageMaker.makeQuery(pageMaker.endPage+1) }">&gt;
+	                    <a class="page-link" href="${pageMaker.makeQuery(pageMaker.endPage+1) }">&gt;
 	                    </a>
 	                </li>
                 </c:if>
                 
                  <c:if test="${pageMaker.next }">
 	                <li class="page-item">
-	                    <a class="page-link" href="list${pageMaker.makeQuery(pageMaker.realEndPage) }">
+	                    <a class="page-link" href="${pageMaker.makeQuery(pageMaker.realEndPage) }">
 	                        &gt;&gt;
 	                    </a>
 	                </li>

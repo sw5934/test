@@ -107,6 +107,7 @@ public class PageMaker {
 
 	public String makeQuery() {
 		String query = "?page=" + cri.getPage() + "&perPageNum=" + cri.getPerPageNum()
+						+ "&listSort="+((SearchCriteria)cri).getListSort() 
 						+ "&searchType="+((SearchCriteria)cri).getSearchType() 
 						+ "&keyword="+((SearchCriteria)cri).getKeyword();
 		return query;
@@ -114,6 +115,7 @@ public class PageMaker {
 
 	public String makeQuery(int page) {
 		String query = "?page=" + page + "&perPageNum=" + cri.getPerPageNum()
+						+ "&listSort="+((SearchCriteria)cri).getListSort() 
 						+"&searchType="+((SearchCriteria)cri).getSearchType()  
 						+ "&keyword="+((SearchCriteria)cri).getKeyword();;
 		return query;

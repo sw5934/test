@@ -4,14 +4,15 @@ package com.spring.controller.board;
 public class SearchCriteria extends Criteria {
 	private String searchType;			//검색 구분
 	private String keyword;				//검색어
+	private String listSort;
 	
 	
 	
 	public SearchCriteria() {
-		this("","");
+		this("","","new");
 	}
 	
-	public SearchCriteria(String searchType, String keyword) {
+	public SearchCriteria(String searchType, String keyword, String listSort) {
 		super();
 		this.searchType = searchType;
 		this.keyword = keyword;
@@ -29,11 +30,20 @@ public class SearchCriteria extends Criteria {
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
-	
+
+	public String getListSort() {
+		return listSort;
+	}
+
+	public void setListSort(String listSort) {
+		this.listSort = listSort;
+	}
+
 	@Override
 	public String toString() {
-		return "SearchCriteria [searchType=" + searchType + ", keyword=" + keyword + "]";
+		return "SearchCriteria [searchType=" + searchType + ", keyword=" + keyword + ", listSort=" + listSort + "]";
 	}
+	
 	
 
 }

@@ -50,9 +50,13 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("/list")
-	public void listReview(SearchCriteria cri, Model model)throws Exception{
+	public void listReview(SearchCriteria cri, Model model ,String listSort)throws Exception{
 		
 		try {
+			if(listSort==null)
+				listSort  = "rno";
+			cri.setListSort(listSort);
+			System.out.println(cri.getListSort());
 			Map<String, Object> dataMap = reviewService.getList(cri);
 
 			model.addAttribute("dataMap",dataMap);

@@ -44,7 +44,17 @@
 		brd_review
 		where rno is not null
 		<include refid="search"/>
-		order by rno desc
+		order by ${listSort} desc
+	</select>
+	
+	<select id="selectSearchReviewListByLike" resultType="review">
+		select
+		*
+		from
+		 ReviewLikeStatus
+		where rno is not null
+		<include refid="search"/>
+		order by r_like desc
 	</select>
 	
 	<select id="selectSearchReviewListCount" resultType="int">
